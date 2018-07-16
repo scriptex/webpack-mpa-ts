@@ -159,7 +159,7 @@ module.exports = env => {
 
 	const config = {
 		mode: env.NODE_ENV,
-		entry: ['./assets/styles/main.scss', './assets/scripts/main.js'],
+		entry: ['./assets/styles/main.scss', './assets/scripts/main.ts'],
 		output: {
 			path: path.resolve(__dirname, './assets'),
 			filename: 'dist/app.js'
@@ -169,7 +169,8 @@ module.exports = env => {
 				'node_modules',
 				'./assets/scripts',
 				'./assets/images/sprite'
-			]
+			],
+			extensions: ['.js', '.ts']
 		},
 		module: {
 			rules: [
@@ -199,6 +200,14 @@ module.exports = env => {
 					test: /\.js$/,
 					exclude: /node_modules/,
 					use: babelConfig
+				},
+				{
+					test: /\.ts$/,
+					loader: 'awesome-typescript-loader'
+				},
+				{
+					test: /\.js/,
+					loader: 'source-map-loader'
 				},
 				{
 					test: /\.(jpe?g|gif|png|svg|woff2?|ttf|eot|wav|mp3|mp4)(\?.*$|$)/,
