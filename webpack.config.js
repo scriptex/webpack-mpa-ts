@@ -42,39 +42,12 @@ const postcssConfig = {
 		require('postcss-url')({
 			url: 'rebase'
 		}),
-		require('postcss-normalize')({
-			forceImport: true
-		}),
 		require('postcss-utilities'),
 		require('postcss-flexbugs-fixes'),
 		require('autoprefixer')()
 	],
 	...sourceMap
 };
-
-const babelConfig = [
-	{
-		loader: 'babel-loader',
-		options: {
-			cacheDirectory: true,
-			comments: false,
-			presets: ['@babel/env'],
-			plugins: [
-				// Stage 2
-				['@babel/plugin-proposal-decorators', { 'legacy': true }],
-				'@babel/plugin-proposal-function-sent',
-				'@babel/plugin-proposal-export-namespace-from',
-				'@babel/plugin-proposal-numeric-separator',
-				'@babel/plugin-proposal-throw-expressions',
-				// Stage 3
-				'@babel/plugin-syntax-dynamic-import',
-				'@babel/plugin-syntax-import-meta',
-				['@babel/plugin-proposal-class-properties', { 'loose': false }],
-				'@babel/plugin-proposal-json-strings'
-			  ]
-		}
-	}
-];
 
 const browserSyncConfig = {
 	host: 'localhost',
@@ -175,11 +148,7 @@ module.exports = env => {
 			filename: 'dist/app.js'
 		},
 		resolve: {
-			modules: [
-				'node_modules',
-				'./assets/scripts',
-				'./assets/images/sprite'
-			],
+			modules: ['node_modules', './assets/scripts', './assets/images/sprite'],
 			extensions: ['.js', '.ts']
 		},
 		module: {
@@ -205,11 +174,6 @@ module.exports = env => {
 							}
 						]
 					})
-				},
-				{
-					test: /\.js$/,
-					exclude: /node_modules/,
-					use: babelConfig
 				},
 				{
 					test: /\.ts$/,
