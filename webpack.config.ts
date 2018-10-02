@@ -1,21 +1,41 @@
-const fs = require('fs');
-const url = require('url');
-const path = require('path');
-const { argv } = require('yargs');
+import { parse } from 'url';
+import { resolve } from 'path';
+import { readdirSync } from 'fs';
 
-const magicImporter = require('node-sass-magic-importer');
-const { ProvidePlugin } = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const SpritesmithPlugin = require('webpack-spritesmith');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const WebpackShellPlugin = require('webpack-shell-plugin');
+import { argv } from 'yargs';
+import * as webpack from 'webpack';
+import * as magicImporter from 'node-sass-magic-importer';
+import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
+import * as SpritesmithPlugin from 'webpack-spritesmith';
+import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin';
+import * as CleanWebpackPlugin from 'clean-webpack-plugin';
+import * as WebpackShellPlugin from 'webpack-shell-plugin';
+import { Options as BrowsersyncOptions } from 'browser-sync';
 
-const sourceMap = {
+
+import * as cssnano from 'cssnano';
+import * as postcssURL from 'postcss-url';
+import * as autoprefixer from 'autoprefixer';
+import * as postcssUtilities from 'postcss-utilities';
+import * as postcssEasyImport from 'postcss-easy-import';
+import * as postcssMergeRules from 'postcss-merge-rules';
+import * as postcssWatchFolder from 'postcss-watch-folder';
+import * as postcssFlexbugsFixed from 'postcss-flexbugs-fixes';
+
+interface ISourceMap {
+	sourceMap: boolean;
+}
+
+interface ObjectsArray {
+	plugins: any,
+	sourceMap?: boolean
+}
+
+const sourceMap: ISourceMap = {
 	sourceMap: argv.env.NODE_ENV === 'development'
 };
 
-const svgoConfig = {
+const svgoConfig: ObjectsArray = {
 	plugins: [
 		{ cleanupAttrs: true },
 		{ removeDoctype: true },
@@ -36,20 +56,18 @@ const svgoConfig = {
 	]
 };
 
-const postcssConfig = {
+const postcssConfig: ObjectsArray = {
 	plugins: [
-		require('postcss-easy-import'),
-		require('postcss-url')({
-			url: 'rebase'
-		}),
-		require('postcss-utilities'),
-		require('postcss-flexbugs-fixes'),
-		require('autoprefixer')()
+		postcssURL({ url: 'rebase' }),
+		autoprefixer(),
+		postcssUtilities,
+		postcssEasyImport,
+		postcssFlexbugsFixed
 	],
 	...sourceMap
 };
 
-const browserSyncConfig = {
+const browserSyncConfig: BrowsersyncOptions = {
 	host: 'localhost',
 	port: 3000,
 	open: 'external',
@@ -77,19 +95,19 @@ const browserSyncConfig = {
 	proxy: 'localhost'
 };
 
-const extractTextConfig = {
+const extractTextConfig: ExtractTextPlugin.PluginOptions = {
 	filename: 'dist/app.css',
 	allChunks: true
 };
 
 const spritesmithConfig = {
 	src: {
-		cwd: path.resolve(__dirname, 'assets/images/sprite'),
+		cwd: resolve(__dirname, 'assets/images/sprite'),
 		glob: '*.png'
 	},
 	target: {
-		image: path.resolve(__dirname, './assets/dist/sprite.png'),
-		css: path.resolve(__dirname, './assets/styles/_sprite.scss')
+		image: resolve(__dirname, './assets/dist/sprite.png'),
+		css: resolve(__dirname, './assets/styles/_sprite.scss')
 	},
 	apiOptions: {
 		cssImageRef: '../dist/sprite.png'
@@ -102,28 +120,27 @@ const cleanConfig = {
 	exclude: ['sprite.svg']
 };
 
-const shellScripts = [];
-const svgs = fs
-	.readdirSync('./assets/images/svg')
-	.filter(svg => svg[0] !== '.');
+const shellScripts: string[] = [];
+const svgs: string[] = readdirSync('./assets/images/svg').filter(svg => svg[0] !== '.');
 
 if (svgs.length) {
 	shellScripts.push(
 		'svgo -f assets/images/svg --config=' + JSON.stringify(svgoConfig)
 	);
+
 	shellScripts.push(
 		'spritesh -q -i assets/images/svg -o ./assets/dist/sprite.svg -p svg-'
 	);
 }
 
-module.exports = env => {
-	const isDevelopment = env.NODE_ENV === 'development';
-	const isProduction = env.NODE_ENV === 'production';
+module.exports = (env): webpack.Configuration => {
+	const isDevelopment: boolean = env.NODE_ENV === 'development';
+	const isProduction: boolean = env.NODE_ENV === 'production';
 
 	if (isProduction) {
 		postcssConfig.plugins.push(
-			require('postcss-merge-rules'),
-			require('cssnano')({
+			postcssMergeRules,
+			cssnano({
 				discardComments: {
 					removeAll: true
 				}
@@ -133,18 +150,18 @@ module.exports = env => {
 
 	if (isDevelopment) {
 		postcssConfig.plugins.push(
-			require('postcss-watch-folder')({
+			postcssWatchFolder({
 				folder: './assets/styles',
 				main: './assets/styles/main.scss'
 			})
 		);
 	}
 
-	const config = {
+	const config: webpack.Configuration = {
 		mode: env.NODE_ENV,
 		entry: ['./assets/styles/main.scss', './assets/scripts/main.ts'],
 		output: {
-			path: path.resolve(__dirname, './assets'),
+			path: resolve(__dirname, './assets'),
 			filename: 'dist/app.js'
 		},
 		resolve: {
@@ -200,7 +217,7 @@ module.exports = env => {
 			]
 		},
 		plugins: [
-			new ProvidePlugin({
+			new webpack.ProvidePlugin({
 				$: 'jquery',
 				jQuery: 'jquery',
 				'window.jQuery': 'jquery'
@@ -220,7 +237,7 @@ module.exports = env => {
 
 	if (isDevelopment) {
 		if (env.url) {
-			browserSyncConfig.host = url.parse(env.url).hostname;
+			browserSyncConfig.host = parse(env.url).hostname;
 			browserSyncConfig.proxy = env.url;
 		}
 
