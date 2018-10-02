@@ -1,5 +1,5 @@
 {
-  "name": "webpack-mpa",
+  "name": "webpack-mpa-ts",
   "version": "2.1.2",
   "description": "Multi page app setup with webpack",
   "scripts": {
