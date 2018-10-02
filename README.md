@@ -1,4 +1,4 @@
-![Webpack MPA Logo](https://raw.githubusercontent.com/scriptex/webpack-mpa-ts/typescript/webpack-mpa.svg?sanitize=true)
+![Webpack MPA Logo](https://raw.githubusercontent.com/scriptex/webpack-mpa-ts/master/webpack-mpa.svg?sanitize=true)
 
 [![GitHub release](https://img.shields.io/github/release/scriptex/webpack-mpa-ts.svg)](https://github.com/scriptex/webpack-mpa-ts/releases/latest)
 [![GitHub issues](https://img.shields.io/github/issues/scriptex/webpack-mpa-ts.svg)](https://github.com/scriptex/webpack-mpa-ts/issues)
