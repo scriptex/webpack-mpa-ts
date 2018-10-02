@@ -64,6 +64,5 @@
     "> 1%",
     "last 2 versions"
   ],
-  "main": "assets/scripts/main.js",
-  "private": true
+  "main": "assets/scripts/main.ts"
 }
