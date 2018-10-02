@@ -1,13 +1,13 @@
-![Webpack MPA Logo](https://raw.githubusercontent.com/scriptex/webpack-mpa/typescript/webpack-mpa.svg?sanitize=true)
+![Webpack MPA Logo](https://raw.githubusercontent.com/scriptex/webpack-mpa-ts/typescript/webpack-mpa.svg?sanitize=true)
 
-[![GitHub release](https://img.shields.io/github/release/scriptex/webpack-mpa.svg)](https://github.com/scriptex/webpack-mpa/releases/latest)
-[![GitHub issues](https://img.shields.io/github/issues/scriptex/webpack-mpa.svg)](https://github.com/scriptex/webpack-mpa/issues)
-[![GitHub last commit](https://img.shields.io/github/last-commit/scriptex/webpack-mpa.svg)](https://github.com/scriptex/webpack-mpa/commits/typescript)
-[![Build Status](https://travis-ci.org/scriptex/webpack-mpa.svg?branch=master)](https://travis-ci.org/scriptex/webpack-mpa)
-[![npm](https://img.shields.io/npm/dt/webpack-mpa.svg)](https://www.npmjs.com/package/webpack-mpa)
-[![npm](https://img.shields.io/npm/v/webpack-mpa.svg)](https://www.npmjs.com/package/webpack-mpa)
-[![Analytics](https://ga-beacon.appspot.com/UA-83446952-1/github.com/scriptex/webpack-mpa/README.md)](https://github.com/scriptex/webpack-mpa/)
-[![Greenkeeper badge](https://badges.greenkeeper.io/scriptex/webpack-mpa.svg)](https://greenkeeper.io/)
+[![GitHub release](https://img.shields.io/github/release/scriptex/webpack-mpa-ts.svg)](https://github.com/scriptex/webpack-mpa-ts/releases/latest)
+[![GitHub issues](https://img.shields.io/github/issues/scriptex/webpack-mpa-ts.svg)](https://github.com/scriptex/webpack-mpa-ts/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/scriptex/webpack-mpa-ts.svg)](https://github.com/scriptex/webpack-mpa-ts/commits/master)
+[![Build Status](https://travis-ci.org/scriptex/webpack-mpa-ts.svg?branch=master)](https://travis-ci.org/scriptex/webpack-mpa-ts)
+[![npm](https://img.shields.io/npm/dt/webpack-mpa-ts.svg)](https://www.npmjs.com/package/webpack-mpa-ts)
+[![npm](https://img.shields.io/npm/v/webpack-mpa-ts.svg)](https://www.npmjs.com/package/webpack-mpa-ts)
+[![Analytics](https://ga-beacon.appspot.com/UA-83446952-1/github.com/scriptex/webpack-mpa-ts/README.md)](https://github.com/scriptex/webpack-mpa-ts/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/scriptex/webpack-mpa-ts.svg)](https://greenkeeper.io/)
 
 # Webpack-MPA
 
@@ -112,10 +112,8 @@ npm run build
 
 If you do not wish to use the retina sprite, comment the `@include retina-sprites($retina-groups);` statement in `main.scss` file.
 
-4.  Latest EcmaScript support
+4.  Latest Typescript support
 
--   Usage of the latest features in EcmaScript
--   Using [Babel](https://github.com/babel/babel) to transpile to ES5
 -   Minification of the bundled file
 -   Source maps
 
