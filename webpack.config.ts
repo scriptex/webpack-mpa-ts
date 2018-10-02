@@ -12,7 +12,6 @@ import * as CleanWebpackPlugin from 'clean-webpack-plugin';
 import * as WebpackShellPlugin from 'webpack-shell-plugin';
 import { Options as BrowsersyncOptions } from 'browser-sync';
 
-
 import * as cssnano from 'cssnano';
 import * as postcssURL from 'postcss-url';
 import * as autoprefixer from 'autoprefixer';
@@ -26,7 +25,7 @@ interface ISourceMap {
 	sourceMap: boolean;
 }
 
-interface ObjectsArray {
+interface IObjectsArray {
 	plugins: any,
 	sourceMap?: boolean
 }
@@ -35,7 +34,7 @@ const sourceMap: ISourceMap = {
 	sourceMap: argv.env.NODE_ENV === 'development'
 };
 
-const svgoConfig: ObjectsArray = {
+const svgoConfig: IObjectsArray = {
 	plugins: [
 		{ cleanupAttrs: true },
 		{ removeDoctype: true },
@@ -56,7 +55,7 @@ const svgoConfig: ObjectsArray = {
 	]
 };
 
-const postcssConfig: ObjectsArray = {
+const postcssConfig: IObjectsArray = {
 	plugins: [
 		postcssURL({ url: 'rebase' }),
 		autoprefixer(),
