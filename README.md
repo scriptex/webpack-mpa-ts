@@ -1,4 +1,4 @@
-![Webpack MPA Logo](https://raw.githubusercontent.com/scriptex/webpack-mpa-ts/master/webpack-mpa.svg?sanitize=true)
+![Webpack MPA TS Logo](https://raw.githubusercontent.com/scriptex/webpack-mpa-ts/master/webpack-mpa.svg?sanitize=true)
 
 [![GitHub release](https://img.shields.io/github/release/scriptex/webpack-mpa-ts.svg)](https://github.com/scriptex/webpack-mpa-ts/releases/latest)
 [![GitHub issues](https://img.shields.io/github/issues/scriptex/webpack-mpa-ts.svg)](https://github.com/scriptex/webpack-mpa-ts/issues)
@@ -9,9 +9,9 @@
 [![Analytics](https://ga-beacon.appspot.com/UA-83446952-1/github.com/scriptex/webpack-mpa-ts/README.md)](https://github.com/scriptex/webpack-mpa-ts/)
 [![Greenkeeper badge](https://badges.greenkeeper.io/scriptex/webpack-mpa-ts.svg)](https://greenkeeper.io/)
 
-# Webpack-MPA
+# Webpack-MPA-TS
 
-Opinionated multiple page application setup with Webpack using SASS, PostCSS, ES2017, PNG & SVG Sprites and more.
+Opinionated multiple page application setup with Webpack using SASS, PostCSS, ES2017, TypeScript, PNG & SVG Sprites and more.
 
 This boilerplate is suitable for static web applications, WordPress websites, etc.
 
@@ -35,23 +35,49 @@ Just keep in mind that the styles should be located in `assets/styles` and the s
 
 ## Download
 
-You can download this setup [directly](https://github.com/scriptex/webpack-mpa/archive/master.zip) and extract it.
+You can download this setup [directly](https://github.com/scriptex/webpack-mpa-ts/archive/master.zip) and extract it.
 
 or use NPM or Yarn to install it:
 
 ```sh
-npm i webpack-mpa
+npm i webpack-mpa-ts
 ```
 
 or
 
 ```sh
-yarn add webpack-mpa
+yarn add webpack-mpa-ts
 ```
 
-Then navigate to the `webpack-mpa` folder and proceed with the rest of the instructions.
+Then navigate to the `webpack-mpa-ts` folder and proceed with the rest of the instructions.
 
-## Install
+## Global installation
+
+It is possible to use the CLI tool included in Webpack MPA TS. In order to do this you must install Webpack MPA TS globally:
+
+```sh
+npm i webpack-mpa-ts ncp -g
+```
+
+or
+
+```sh
+yarn global add webpack-mpa-ts ncp
+```
+
+`ncp` is a peer dependency and is needed for the CLI interface. If you don't install it you will not be able to use the `wmpats` binary.
+
+The `wmpats` binary is now available for you to use.
+
+Go to your new project folder and execute
+
+```sh
+wmpats
+```
+
+Your new project is setup!
+
+## Install dependencies
 
 ```sh
 yarn
@@ -147,10 +173,10 @@ This action is performed each time the `start` command is invoked.
 The `assets` folder contains several folders:
 
 -   `images` - contains several folders too:
-    - `favicon` - contains [all icons variations](https://github.com/audreyr/favicon-cheat-sheet)
-    - `sprite` - contains png sprite's parts
-    - `svg` - contains svg sprite's parts
-    - `temp` - contains content images
+    -   `favicon` - contains [all icons variations](https://github.com/audreyr/favicon-cheat-sheet)
+    -   `sprite` - contains png sprite's parts
+    -   `svg` - contains svg sprite's parts
+    -   `temp` - contains content images
 -   `scripts` - contains the JS modules
 -   `styles` - contains the SASS stylesheets
 
