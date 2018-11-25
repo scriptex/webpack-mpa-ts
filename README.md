@@ -33,6 +33,16 @@ Also, you can always switch to another file/folder structure if the current one 
 
 Just keep in mind that the styles should be located in `assets/styles` and the scripts should be located in `assets/scripts`.
 
+## Zero config and fast installation
+
+Navigate to your new project's folder and execute the following command:
+
+```sh
+npx webpack-mpa-ts && npm i && npm start
+```
+
+This will install Webpack-MPA in your project folder and you will be able to start right away.
+
 ## Download
 
 You can download this setup [directly](https://github.com/scriptex/webpack-mpa-ts/archive/master.zip) and extract it.
@@ -56,16 +66,14 @@ Then navigate to the `webpack-mpa-ts` folder and proceed with the rest of the in
 It is possible to use the CLI tool included in Webpack MPA TS. In order to do this you must install Webpack MPA TS globally:
 
 ```sh
-npm i webpack-mpa-ts ncp -g
+npm i webpack-mpa-ts -g
 ```
 
 or
 
 ```sh
-yarn global add webpack-mpa-ts ncp
+yarn global add webpack-mpa-ts
 ```
-
-`ncp` is a peer dependency and is needed for the CLI interface. If you don't install it you will not be able to use the `wmpats` binary.
 
 The `wmpats` binary is now available for you to use.
 
