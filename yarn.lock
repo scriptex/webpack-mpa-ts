@@ -206,9 +206,9 @@
     "@types/uglify-js" "*"
     source-map "^0.6.0"
 
-"@types/yargs@12.0.1":
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-12.0.1.tgz#c5ce4ad64499010ae4dc2acd9b14d49749a44233"
+"@types/yargs@12.0.2":
+  version "12.0.2"
+  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-12.0.2.tgz#7569157b2601d49d4442023c0d22f81d23f62d1e"
 
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
