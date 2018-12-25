@@ -7,7 +7,6 @@
 [![npm](https://img.shields.io/npm/dt/webpack-mpa-ts.svg)](https://www.npmjs.com/package/webpack-mpa-ts)
 [![npm](https://img.shields.io/npm/v/webpack-mpa-ts.svg)](https://www.npmjs.com/package/webpack-mpa-ts)
 [![Analytics](https://ga-beacon.appspot.com/UA-83446952-1/github.com/scriptex/webpack-mpa-ts/README.md)](https://github.com/scriptex/webpack-mpa-ts/)
-[![Greenkeeper badge](https://badges.greenkeeper.io/scriptex/webpack-mpa-ts.svg)](https://greenkeeper.io/)
 
 # Webpack-MPA-TS
 
