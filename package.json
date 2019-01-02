@@ -10,7 +10,10 @@
 		"critical": "critical index.html > assets/dist/critical.css",
 		"rm-html": "rm index.html",
 		"pwa": "create-pwa --icon=\"./assets/images/favicon/icon.png\"",
-		"prod": "yarn build && yarn html && yarn critical && yarn rm-html"
+		"prod": "yarn build && yarn html && yarn critical && yarn rm-html",
+		"lint:ts": "tslint -p tsconfig.json -c tslint.json 'assets/**/*.ts'",
+		"lint:scss": "stylelint './src/**/*.scss' --config .stylelintrc.json",
+		"lint": "yarn lint:ts && yarn lint:scss"
 	},
 	"keywords": [
 		"MPA",
@@ -58,7 +61,11 @@
 		"sass-loader": "7.1.0",
 		"source-map-loader": "0.2.4",
 		"spritesh": "1.2.1",
+		"stylelint": "^9.9.0",
+		"stylelint-config-recommended": "^2.1.0",
 		"ts-node": "7.0.1",
+		"tslint": "^5.12.0",
+		"tslint-config-prettier": "^1.17.0",
 		"typescript": "3.2.2",
 		"webpack": "4.28.3",
 		"webpack-cli": "3.1.2",
