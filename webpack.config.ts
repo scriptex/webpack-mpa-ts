@@ -26,12 +26,12 @@ interface ISourceMap {
 }
 
 interface IObjectsArray {
-	plugins: any,
-	sourceMap?: boolean
+	plugins: any;
+	sourceMap?: boolean;
 }
 
 const sourceMap: ISourceMap = {
-	sourceMap: argv.env.NODE_ENV === 'development'
+	sourceMap: (argv.env as any).NODE_ENV === 'development'
 };
 
 const svgoConfig: IObjectsArray = {
@@ -56,13 +56,7 @@ const svgoConfig: IObjectsArray = {
 };
 
 const postcssConfig: IObjectsArray = {
-	plugins: [
-		postcssURL({ url: 'rebase' }),
-		autoprefixer(),
-		postcssUtilities,
-		postcssEasyImport,
-		postcssFlexbugsFixed
-	],
+	plugins: [postcssURL({ url: 'rebase' }), autoprefixer(), postcssUtilities, postcssEasyImport, postcssFlexbugsFixed],
 	...sourceMap
 };
 
@@ -70,12 +64,7 @@ const browserSyncConfig: BrowsersyncOptions = {
 	host: 'localhost',
 	port: 3000,
 	open: 'external',
-	files: [
-		'**/*.php',
-		'**/*.html',
-		'./assets/dist/app.css',
-		'./assets/dist/app.js'
-	],
+	files: ['**/*.php', '**/*.html', './assets/dist/app.css', './assets/dist/app.js'],
 	ghostMode: {
 		clicks: false,
 		scroll: true,
@@ -123,13 +112,9 @@ const shellScripts: string[] = [];
 const svgs: string[] = readdirSync('./assets/images/svg').filter(svg => svg[0] !== '.');
 
 if (svgs.length) {
-	shellScripts.push(
-		'svgo -f assets/images/svg --config=' + JSON.stringify(svgoConfig)
-	);
+	shellScripts.push('svgo -f assets/images/svg --config=' + JSON.stringify(svgoConfig));
 
-	shellScripts.push(
-		'spritesh -q -i assets/images/svg -o ./assets/dist/sprite.svg -p svg-'
-	);
+	shellScripts.push('spritesh -q -i assets/images/svg -o ./assets/dist/sprite.svg -p svg-');
 }
 
 module.exports = (env): webpack.Configuration => {
