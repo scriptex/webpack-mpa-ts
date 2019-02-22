@@ -35,7 +35,7 @@
 		"@three11/optisize": "0.7.0",
 		"@types/browser-sync": "0.0.42",
 		"@types/extract-text-webpack-plugin": "3.0.4",
-		"@types/node": "10.12.26",
+		"@types/node": "10.12.27",
 		"@types/webpack": "4.4.24",
 		"@types/yargs": "12.0.9",
 		"autoprefixer": "9.4.8",
