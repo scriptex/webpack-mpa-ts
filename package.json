@@ -36,7 +36,7 @@
 		"@types/browser-sync": "0.0.42",
 		"@types/extract-text-webpack-plugin": "3.0.4",
 		"@types/node": "10.12.27",
-		"@types/webpack": "4.4.24",
+		"@types/webpack": "4.4.25",
 		"@types/yargs": "12.0.9",
 		"autoprefixer": "9.4.9",
 		"awesome-typescript-loader": "5.2.1",
