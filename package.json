@@ -33,7 +33,7 @@
 	},
 	"devDependencies": {
 		"@three11/optisize": "0.7.0",
-		"@types/browser-sync": "0.0.43",
+		"@types/browser-sync": "2.26.0",
 		"@types/extract-text-webpack-plugin": "3.0.4",
 		"@types/node": "10.14.7",
 		"@types/webpack": "4.4.31",
