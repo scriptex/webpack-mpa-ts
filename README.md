@@ -236,6 +236,20 @@ Here is a bit more about what each script does:
 In order to use the ability to generate critical CSS you must have the `php` binary exposed in your bash terminal.
 More about PHP's commandline usage can be found [here](http://php.net/manual/en/features.commandline.php).
 
+## Public vs. private projects
+
+This starter boilerplate is licensed under the MIT open source license and is publicly available.
+
+If you intend to use it to create a private and closed source project, please make sure to delete the `license` field in the `package.json` file and add `"private": true` in the same file.
+
+This will make sure that you don't accidentally use an open source license for your private/closed source project.
+
+## Support this project
+
+[![Tweet](https://img.shields.io/badge/Tweet-Share_this_repository-blue.svg?style=flat-square&logo=twitter&color=38A1F3)](https://twitter.com/intent/tweet?text=Checkout%20this%20awesome%20software%20project%3A&url=https%3A%2F%2Fgithub.com%2Fscriptex%2Fwebpack-mpa-ts&via=scriptexbg&hashtags=software%2Cgithub%2Ccode%2Cawesome)
+[![Donate](https://img.shields.io/badge/Donate-Support_me_on_PayPal-blue.svg?style=flat-square&logo=paypal&color=222d65)](https://www.paypal.me/scriptex)
+[![Become a Patron](https://img.shields.io/badge/Become_Patron-Support_me_on_Patreon-blue.svg?style=flat-square&logo=patreon&color=e64413)](https://www.patreon.com/atanas)
+
 ## LICENSE
 
 MIT
