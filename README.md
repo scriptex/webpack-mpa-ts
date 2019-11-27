@@ -18,7 +18,7 @@ This boilerplate is suitable for static web applications, WordPress websites, et
 
 In order to use this setup you need to have installed the following dependencies:
 
-1.  Node - min v8.9.4
+1.  Node - min v8.9.4 - LTS recommended
 2.  NPM - min v5.6.0
     or
 3.  Yarn - min v1.3.2
