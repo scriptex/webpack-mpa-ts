@@ -1,3 +1,4 @@
+import { exec } from 'child_process';
 import { parse } from 'url';
 import { resolve } from 'path';
 import { readdirSync } from 'fs';
@@ -30,9 +31,14 @@ interface IObjectsArray {
 	sourceMap?: boolean;
 }
 
+const { url, server, NODE_ENV }: any = argv;
 const sourceMap: ISourceMap = {
-	sourceMap: (argv.env as any).NODE_ENV === 'development'
+	sourceMap: NODE_ENV === 'development'
 };
+
+if (server) {
+	exec('php index.php > index.html');
+}
 
 const svgoConfig: IObjectsArray = {
 	plugins: [
@@ -64,7 +70,23 @@ const browserSyncConfig: BrowsersyncOptions = {
 	host: 'localhost',
 	port: 3000,
 	open: 'external',
-	files: ['**/*.php', '**/*.html', './assets/dist/app.css', './assets/dist/app.js'],
+	/* eslint-disable no-mixed-spaces-and-tabs */
+	files: [
+		server
+			? {
+					match: ['*.php'],
+					fn(_: any, file: string): void {
+						const name = file.replace(/.php$/, '');
+
+						exec(`php ${file} > ${name}.html`);
+					}
+			  }
+			: '**/*.php',
+		'**/*.html',
+		'./assets/dist/app.css',
+		'./assets/dist/app.js'
+	],
+	/* eslint-enable */
 	ghostMode: {
 		clicks: false,
 		scroll: true,
@@ -117,9 +139,9 @@ if (svgs.length) {
 	shellScripts.push('spritesh -q -i assets/images/svg -o ./assets/dist/sprite.svg -p svg-');
 }
 
-module.exports = (env): webpack.Configuration => {
-	const isDevelopment: boolean = env.NODE_ENV === 'development';
-	const isProduction: boolean = env.NODE_ENV === 'production';
+module.exports = (): webpack.Configuration => {
+	const isDevelopment: boolean = NODE_ENV === 'development';
+	const isProduction: boolean = NODE_ENV === 'production';
 
 	if (isProduction) {
 		postcssConfig.plugins.push(
@@ -142,7 +164,7 @@ module.exports = (env): webpack.Configuration => {
 	}
 
 	const config: webpack.Configuration = {
-		mode: env.NODE_ENV,
+		mode: NODE_ENV,
 		entry: ['./assets/styles/main.scss', './assets/scripts/main.ts'],
 		output: {
 			path: resolve(__dirname, './assets'),
@@ -222,9 +244,16 @@ module.exports = (env): webpack.Configuration => {
 	};
 
 	if (isDevelopment) {
-		if (env.url) {
-			browserSyncConfig.host = parse(env.url).hostname;
-			browserSyncConfig.proxy = env.url;
+		if (url) {
+			browserSyncConfig.host = parse(url).hostname;
+			browserSyncConfig.proxy = url;
+		}
+
+		if (server) {
+			delete browserSyncConfig.host;
+			delete browserSyncConfig.proxy;
+
+			browserSyncConfig.server = true;
 		}
 
 		config.plugins.push(

@@ -161,17 +161,29 @@ npm run build
 
 5.  Automatic browser reload using [BrowserSync](https://browsersync.io/)
 
-    -   The setup assumes that you have a web server installed. If you do not, then the files will be served via the browser-sync built-in server.
-    -   If you wish to use a proxy in browsersync you can do it using the `url` CLI argument like this:
+    -   The setup assumes that you have a web server installed.
+    -   If you wish to use a proxy in browsersync you can do it using the `--url` CLI argument like this:
 
     ```sh
-    yarn start --env.url=http://your.app
+    yarn start --url=http://your.app
     ```
 
     or
 
     ```sh
-    npm start -- --env.url=http://your.app
+    npm start -- --url=http://your.app
+    ```
+
+    If you do not have a web server installed, then the files can be served via the browser-sync built-in server. In order to use this you need to pass a new CLI argument `--server` like this.
+
+    ```sh
+    yarn start --server
+    ```
+
+    or
+
+    ```sh
+    npm start -- --server
     ```
 
 6.  Images optimization using [Optisize](https://github.com/three11/optisize)
