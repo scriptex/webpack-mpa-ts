@@ -21,6 +21,8 @@ Thumbs.db
 /assets/dist
 
 # Config files
+.github
+.circleci
 renovate.json
 _config.yml
 _.config.yml

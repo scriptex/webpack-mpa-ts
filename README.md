@@ -4,6 +4,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/scriptex/webpack-mpa-ts.svg)](https://github.com/scriptex/webpack-mpa-ts/issues)
 [![GitHub last commit](https://img.shields.io/github/last-commit/scriptex/webpack-mpa-ts.svg)](https://github.com/scriptex/webpack-mpa-ts/commits/master)
 [![Build Status](https://travis-ci.org/scriptex/webpack-mpa-ts.svg?branch=master)](https://travis-ci.org/scriptex/webpack-mpa-ts)
+[![Build Status](https://circleci.com/gh/scriptex/webpack-mpa-ts.svg?style=svg)](https://circleci.com/gh/scriptex/webpack-mpa-ts)
 [![npm](https://img.shields.io/npm/dt/webpack-mpa-ts.svg)](https://www.npmjs.com/package/webpack-mpa-ts)
 [![npm](https://img.shields.io/npm/v/webpack-mpa-ts.svg)](https://www.npmjs.com/package/webpack-mpa-ts)
 [![Analytics](https://ga-beacon.appspot.com/UA-83446952-1/github.com/scriptex/webpack-mpa-ts/README.md)](https://github.com/scriptex/webpack-mpa-ts/)
