@@ -9,9 +9,10 @@ import * as magicImporter from 'node-sass-magic-importer';
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 import * as SpritesmithPlugin from 'webpack-spritesmith';
 import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin';
-import * as CleanWebpackPlugin from 'clean-webpack-plugin';
 import * as WebpackShellPlugin from 'webpack-shell-plugin';
+import { Options as SVGOOptions } from 'svgo';
 import { Options as BrowsersyncOptions } from 'browser-sync';
+import { Options as CleanWebpackPluginOptions, CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 import * as cssnano from 'cssnano';
 import * as postcssURL from 'postcss-url';
@@ -40,7 +41,7 @@ if (server) {
 	exec('php index.php > index.html');
 }
 
-const svgoConfig: IObjectsArray = {
+const svgoConfig: SVGOOptions = {
 	plugins: [
 		{ cleanupAttrs: true },
 		{ removeDoctype: true },
@@ -125,9 +126,8 @@ const spritesmithConfig = {
 	retina: '@2x'
 };
 
-const cleanConfig = {
-	verbose: false,
-	exclude: ['sprite.svg']
+const cleanConfig: CleanWebpackPluginOptions = {
+	cleanOnceBeforeBuildPatterns: ['dist/*', '!dist/sprite.svg']
 };
 
 const shellScripts: string[] = [];
@@ -232,7 +232,7 @@ module.exports = (): webpack.Configuration => {
 			}),
 			new ExtractTextPlugin(extractTextConfig),
 			new SpritesmithPlugin(spritesmithConfig),
-			new CleanWebpackPlugin(['./assets/dist/'], cleanConfig),
+			new CleanWebpackPlugin(cleanConfig),
 			new WebpackShellPlugin({
 				onBuildStart: shellScripts
 			})
