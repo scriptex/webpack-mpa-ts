@@ -6,6 +6,9 @@ jobs:
         steps:
             - checkout
             - run:
+                  name: autoreconf
+                  command: sudo apt install automake
+            - run:
                   name: install
                   command: npm install
             - run:
