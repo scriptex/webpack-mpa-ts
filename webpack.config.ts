@@ -6,10 +6,10 @@ import { readdirSync } from 'fs';
 import { argv } from 'yargs';
 import * as webpack from 'webpack';
 import * as magicImporter from 'node-sass-magic-importer';
-import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 import * as SpritesmithPlugin from 'webpack-spritesmith';
 import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import * as WebpackShellPlugin from 'webpack-shell-plugin';
+import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { Options as SVGOOptions } from 'svgo';
 import { Options as BrowsersyncOptions } from 'browser-sync';
 import { Options as CleanWebpackPluginOptions, CleanWebpackPlugin } from 'clean-webpack-plugin';
@@ -106,9 +106,8 @@ const browserSyncConfig: BrowsersyncOptions = {
 	proxy: 'localhost'
 };
 
-const extractTextConfig: ExtractTextPlugin.PluginOptions = {
-	filename: 'dist/app.css',
-	allChunks: true
+const extractTextConfig: MiniCssExtractPlugin.PluginOptions = {
+	filename: 'dist/app.css'
 };
 
 const spritesmithConfig = {
@@ -144,14 +143,7 @@ module.exports = (): webpack.Configuration => {
 	const isProduction: boolean = NODE_ENV === 'production';
 
 	if (isProduction) {
-		postcssConfig.plugins.push(
-			postcssMergeRules,
-			cssnano({
-				discardComments: {
-					removeAll: true
-				}
-			})
-		);
+		postcssConfig.plugins.push(postcssMergeRules, cssnano());
 	}
 
 	if (isDevelopment) {
@@ -177,28 +169,32 @@ module.exports = (): webpack.Configuration => {
 		module: {
 			rules: [
 				{
-					test: /\.scss$/,
-					use: ExtractTextPlugin.extract({
-						use: [
-							{
-								loader: 'css-loader',
-								options: sourceMap
-							},
-							{
-								loader: 'postcss-loader',
-								options: postcssConfig
-							},
-							{
-								loader: 'sass-loader',
-								options: {
-									sassOptions: {
-										importer: magicImporter()
-									},
-									...sourceMap
-								}
+					test: /\.(sa|sc|c)ss$/,
+					use: [
+						{
+							loader: MiniCssExtractPlugin.loader,
+							options: {
+								hmr: isDevelopment
 							}
-						]
-					})
+						},
+						{
+							loader: 'css-loader',
+							options: sourceMap
+						},
+						{
+							loader: 'postcss-loader',
+							options: postcssConfig
+						},
+						{
+							loader: 'sass-loader',
+							options: {
+								sassOptions: {
+									importer: magicImporter()
+								},
+								...sourceMap
+							}
+						}
+					]
 				},
 				{
 					test: /\.ts$/,
@@ -230,7 +226,7 @@ module.exports = (): webpack.Configuration => {
 				jQuery: 'jquery',
 				'window.jQuery': 'jquery'
 			}),
-			new ExtractTextPlugin(extractTextConfig),
+			new MiniCssExtractPlugin(extractTextConfig),
 			new SpritesmithPlugin(spritesmithConfig),
 			new CleanWebpackPlugin(cleanConfig),
 			new WebpackShellPlugin({
