@@ -29,7 +29,7 @@
 	},
 	"license": "MIT",
 	"dependencies": {
-		"itscss": "1.2.0"
+		"itscss": "1.3.0"
 	},
 	"devDependencies": {
 		"@three11/optisize": "1.1.0",
