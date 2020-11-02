@@ -9,10 +9,10 @@ import * as magicImporter from 'node-sass-magic-importer';
 import * as SpritesmithPlugin from 'webpack-spritesmith';
 import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin';
 import * as WebpackShellPlugin from 'webpack-shell-plugin';
+import * as CleanWebpackPlugin from 'clean-webpack-plugin';
 import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { Options as SVGOOptions } from 'svgo';
 import { Options as BrowsersyncOptions } from 'browser-sync';
-import { Options as CleanWebpackPluginOptions, CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 import * as cssnano from 'cssnano';
 import * as postcssURL from 'postcss-url';
@@ -125,8 +125,10 @@ const spritesmithConfig = {
 	retina: '@2x'
 };
 
-const cleanConfig: CleanWebpackPluginOptions = {
-	cleanOnceBeforeBuildPatterns: ['dist/*', '!dist/sprite.svg']
+const cleanConfig: Record<string, any> = {
+	verbose: false,
+	exclude: ['sprite.svg'],
+	allowExternal: true
 };
 
 const shellScripts: string[] = [];
@@ -228,7 +230,7 @@ module.exports = (): webpack.Configuration => {
 			}),
 			new MiniCssExtractPlugin(extractTextConfig),
 			new SpritesmithPlugin(spritesmithConfig),
-			new CleanWebpackPlugin(cleanConfig),
+			new CleanWebpackPlugin(['../assets/dist/'], cleanConfig),
 			new WebpackShellPlugin({
 				onBuildStart: shellScripts
 			})
