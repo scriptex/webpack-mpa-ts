@@ -235,6 +235,9 @@ module.exports = (): webpack.Configuration => {
 				onBuildStart: shellScripts
 			})
 		],
+		externals: {
+			jquery: 'jQuery'
+		},
 		cache: true,
 		bail: false,
 		devtool: isDevelopment ? 'source-map' : false,
