@@ -174,10 +174,7 @@ module.exports = (): webpack.Configuration => {
 					test: /\.(sa|sc|c)ss$/,
 					use: [
 						{
-							loader: MiniCssExtractPlugin.loader,
-							options: {
-								hmr: isDevelopment
-							}
+							loader: MiniCssExtractPlugin.loader
 						},
 						{
 							loader: 'css-loader',
