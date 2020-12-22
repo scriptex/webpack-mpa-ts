@@ -49,7 +49,7 @@
 		"autoprefixer": "9.8.6",
 		"awesome-typescript-loader": "5.2.1",
 		"browser-sync": "2.26.13",
-		"browser-sync-webpack-plugin": "2.2.2",
+		"browser-sync-webpack-plugin": "2.3.0",
 		"clean-webpack-plugin": "1.0.1",
 		"create-pwa": "2.3.0",
 		"critical": "2.0.6",
