@@ -8,9 +8,10 @@ import * as webpack from 'webpack';
 import * as magicImporter from 'node-sass-magic-importer';
 import * as SpritesmithPlugin from 'webpack-spritesmith';
 import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin';
+import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 import * as WebpackShellPlugin from 'webpack-shell-plugin';
 import * as CleanWebpackPlugin from 'clean-webpack-plugin';
-import * as MiniCssExtractPlugin from 'mini-css-extract-plugin';
+
 import { Options as SVGOOptions } from 'svgo';
 import { Options as BrowsersyncOptions } from 'browser-sync';
 
@@ -106,8 +107,9 @@ const browserSyncConfig: BrowsersyncOptions = {
 	proxy: 'localhost'
 };
 
-const extractTextConfig: MiniCssExtractPlugin.PluginOptions = {
-	filename: 'dist/app.css'
+const extractTextConfig: ExtractTextPlugin.PluginOptions = {
+	filename: 'dist/app.css',
+	allChunks: true
 };
 
 const spritesmithConfig = {
@@ -172,28 +174,27 @@ module.exports = (): webpack.Configuration => {
 			rules: [
 				{
 					test: /\.(sa|sc|c)ss$/,
-					use: [
-						{
-							loader: MiniCssExtractPlugin.loader
-						},
-						{
-							loader: 'css-loader',
-							options: sourceMap
-						},
-						{
-							loader: 'postcss-loader',
-							options: { postcssOptions }
-						},
-						{
-							loader: 'sass-loader',
-							options: {
-								sassOptions: {
-									importer: magicImporter()
-								},
-								...sourceMap
+					use: ExtractTextPlugin.extract({
+						use: [
+							{
+								loader: 'css-loader',
+								options: sourceMap
+							},
+							{
+								loader: 'postcss-loader',
+								options: { postcssOptions }
+							},
+							{
+								loader: 'sass-loader',
+								options: {
+									sassOptions: {
+										importer: magicImporter()
+									},
+									...sourceMap
+								}
 							}
-						}
-					]
+						]
+					})
 				},
 				{
 					test: /\.ts$/,
@@ -225,7 +226,7 @@ module.exports = (): webpack.Configuration => {
 				jQuery: 'jquery',
 				'window.jQuery': 'jquery'
 			}),
-			new MiniCssExtractPlugin(extractTextConfig),
+			new ExtractTextPlugin(extractTextConfig),
 			new SpritesmithPlugin(spritesmithConfig),
 			new CleanWebpackPlugin(['../assets/dist/'], cleanConfig),
 			new WebpackShellPlugin({
@@ -243,7 +244,7 @@ module.exports = (): webpack.Configuration => {
 
 	if (isDevelopment) {
 		if (url) {
-			browserSyncConfig.host = parse(url).hostname;
+			browserSyncConfig.host = parse(url).hostname as any;
 			browserSyncConfig.proxy = url;
 		}
 
@@ -254,10 +255,10 @@ module.exports = (): webpack.Configuration => {
 			browserSyncConfig.server = true;
 		}
 
-		config.plugins.push(
+		config.plugins?.push(
 			new BrowserSyncPlugin(browserSyncConfig, {
 				reload: false
-			})
+			}) as any
 		);
 	}
 
