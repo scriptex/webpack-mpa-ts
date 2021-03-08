@@ -12,8 +12,8 @@ import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 import * as WebpackShellPlugin from 'webpack-shell-plugin';
 import * as CleanWebpackPlugin from 'clean-webpack-plugin';
 
-import { Options as SVGOOptions } from 'svgo';
 import { Options as BrowsersyncOptions } from 'browser-sync';
+import { OptimizeOptions as SVGOOptions } from 'svgo';
 
 import * as cssnano from 'cssnano';
 import * as postcssURL from 'postcss-url';
@@ -44,22 +44,22 @@ if (server) {
 
 const svgoConfig: SVGOOptions = {
 	plugins: [
-		{ cleanupAttrs: true },
-		{ removeDoctype: true },
-		{ removeXMLProcInst: true },
-		{ removeComments: true },
-		{ removeMetadata: true },
-		{ removeUselessDefs: true },
-		{ removeEditorsNSData: true },
-		{ removeEmptyAttrs: true },
-		{ removeHiddenElems: false },
-		{ removeEmptyText: true },
-		{ removeEmptyContainers: true },
-		{ cleanupEnableBackground: true },
-		{ removeViewBox: false },
-		{ cleanupIDs: false },
-		{ convertStyleToAttrs: true },
-		{ removeUselessStrokeAndFill: true }
+		{ name: 'cleanupAttrs', active: true },
+		{ name: 'removeDoctype', active: true },
+		{ name: 'removeXMLProcInst', active: true },
+		{ name: 'removeComments', active: true },
+		{ name: 'removeMetadata', active: true },
+		{ name: 'removeUselessDefs', active: true },
+		{ name: 'removeEditorsNSData', active: true },
+		{ name: 'removeEmptyAttrs', active: true },
+		{ name: 'removeHiddenElems', active: false },
+		{ name: 'removeEmptyText', active: true },
+		{ name: 'removeEmptyContainers', active: true },
+		{ name: 'cleanupEnableBackground', active: true },
+		{ name: 'removeViewBox', active: false },
+		{ name: 'cleanupIDs', active: false },
+		{ name: 'convertStyleToAttrs', active: true },
+		{ name: 'removeUselessStrokeAndFill', active: true }
 	]
 };
 
