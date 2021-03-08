@@ -1,48 +1,36 @@
-import { exec } from 'child_process';
-import { parse } from 'url';
-import { resolve } from 'path';
-import { readdirSync } from 'fs';
+const { exec } = require('child_process');
+const { parse } = require('url');
+const { resolve } = require('path');
+const { readdirSync } = require('fs');
 
-import { argv } from 'yargs';
-import * as webpack from 'webpack';
-import * as magicImporter from 'node-sass-magic-importer';
-import * as SpritesmithPlugin from 'webpack-spritesmith';
-import * as BrowserSyncPlugin from 'browser-sync-webpack-plugin';
-import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
-import * as WebpackShellPlugin from 'webpack-shell-plugin';
-import * as CleanWebpackPlugin from 'clean-webpack-plugin';
+const { argv } = require('yargs');
+const webpack = require('webpack');
+const magicImporter = require('node-sass-magic-importer');
+const SpritesmithPlugin = require('webpack-spritesmith');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const WebpackShellPlugin = require('webpack-shell-plugin-next');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-import { Options as BrowsersyncOptions } from 'browser-sync';
-import { OptimizeOptions as SVGOOptions } from 'svgo';
+const cssnano = require('cssnano');
+const postcssURL = require('postcss-url');
+const autoprefixer = require('autoprefixer');
+const postcssUtilities = require('postcss-utilities');
+const postcssEasyImport = require('postcss-easy-import');
+const postcssMergeRules = require('postcss-merge-rules');
+const postcssWatchFolder = require('postcss-watch-folder');
+const postcssFlexbugsFixed = require('postcss-flexbugs-fixes');
 
-import * as cssnano from 'cssnano';
-import * as postcssURL from 'postcss-url';
-import * as autoprefixer from 'autoprefixer';
-import * as postcssUtilities from 'postcss-utilities';
-import * as postcssEasyImport from 'postcss-easy-import';
-import * as postcssMergeRules from 'postcss-merge-rules';
-import * as postcssWatchFolder from 'postcss-watch-folder';
-import * as postcssFlexbugsFixed from 'postcss-flexbugs-fixes';
-
-interface ISourceMap {
-	sourceMap: boolean;
-}
-
-interface IObjectsArray {
-	plugins: any;
-	sourceMap?: boolean;
-}
-
-const { url, server, NODE_ENV }: any = argv;
-const sourceMap: ISourceMap = {
-	sourceMap: NODE_ENV === 'development'
+const { url, server, mode } = argv;
+const sourceMap = {
+	sourceMap: mode === 'development'
 };
 
 if (server) {
 	exec('php index.php > index.html');
 }
 
-const svgoConfig: SVGOOptions = {
+const svgoConfig = {
 	plugins: [
 		{ name: 'cleanupAttrs', active: true },
 		{ name: 'removeDoctype', active: true },
@@ -63,12 +51,12 @@ const svgoConfig: SVGOOptions = {
 	]
 };
 
-const postcssOptions: IObjectsArray = {
+const postcssOptions = {
 	plugins: [postcssURL({ url: 'rebase' }), autoprefixer(), postcssUtilities, postcssEasyImport, postcssFlexbugsFixed],
 	...sourceMap
 };
 
-const browserSyncConfig: BrowsersyncOptions = {
+const browserSyncConfig = {
 	host: 'localhost',
 	port: 3000,
 	open: 'external',
@@ -77,7 +65,7 @@ const browserSyncConfig: BrowsersyncOptions = {
 		server
 			? {
 					match: ['*.php'],
-					fn(_: any, file: string): void {
+					fn(_, file) {
 						const name = file.replace(/.php$/, '');
 
 						exec(`php ${file} > ${name}.html`);
@@ -107,9 +95,8 @@ const browserSyncConfig: BrowsersyncOptions = {
 	proxy: 'localhost'
 };
 
-const extractTextConfig: ExtractTextPlugin.PluginOptions = {
-	filename: 'dist/app.css',
-	allChunks: true
+const extractTextConfig = {
+	filename: 'dist/app.css'
 };
 
 const spritesmithConfig = {
@@ -127,14 +114,14 @@ const spritesmithConfig = {
 	retina: '@2x'
 };
 
-const cleanConfig: Record<string, any> = {
+const cleanConfig = {
 	verbose: false,
 	exclude: ['sprite.svg'],
 	allowExternal: true
 };
 
-const shellScripts: string[] = [];
-const svgs: string[] = readdirSync('./assets/images/svg').filter(svg => svg[0] !== '.');
+const shellScripts = [];
+const svgs = readdirSync('./assets/images/svg').filter(svg => svg[0] !== '.');
 
 if (svgs.length) {
 	shellScripts.push('svgo -f assets/images/svg --config=' + JSON.stringify(svgoConfig));
@@ -142,9 +129,9 @@ if (svgs.length) {
 	shellScripts.push('spritesh -q -i assets/images/svg -o ./assets/dist/sprite.svg -p svg-');
 }
 
-module.exports = (): webpack.Configuration => {
-	const isDevelopment: boolean = NODE_ENV === 'development';
-	const isProduction: boolean = NODE_ENV === 'production';
+module.exports = () => {
+	const isDevelopment = mode === 'development';
+	const isProduction = mode === 'production';
 
 	if (isProduction) {
 		postcssOptions.plugins.push(postcssMergeRules, cssnano());
@@ -159,8 +146,8 @@ module.exports = (): webpack.Configuration => {
 		);
 	}
 
-	const config: webpack.Configuration = {
-		mode: NODE_ENV,
+	const config = {
+		mode: mode,
 		entry: ['./assets/styles/main.scss', './assets/scripts/main.ts'],
 		output: {
 			path: resolve(__dirname, './assets'),
@@ -174,27 +161,28 @@ module.exports = (): webpack.Configuration => {
 			rules: [
 				{
 					test: /\.(sa|sc|c)ss$/,
-					use: ExtractTextPlugin.extract({
-						use: [
-							{
-								loader: 'css-loader',
-								options: sourceMap
-							},
-							{
-								loader: 'postcss-loader',
-								options: { postcssOptions }
-							},
-							{
-								loader: 'sass-loader',
-								options: {
-									sassOptions: {
-										importer: magicImporter()
-									},
-									...sourceMap
-								}
+					use: [
+						{
+							loader: MiniCssExtractPlugin.loader
+						},
+						{
+							loader: 'css-loader',
+							options: sourceMap
+						},
+						{
+							loader: 'postcss-loader',
+							options: { postcssOptions }
+						},
+						{
+							loader: 'sass-loader',
+							options: {
+								sassOptions: {
+									importer: magicImporter()
+								},
+								...sourceMap
 							}
-						]
-					})
+						}
+					]
 				},
 				{
 					test: /\.ts$/,
@@ -226,11 +214,14 @@ module.exports = (): webpack.Configuration => {
 				jQuery: 'jquery',
 				'window.jQuery': 'jquery'
 			}),
-			new ExtractTextPlugin(extractTextConfig),
+			new MiniCssExtractPlugin(extractTextConfig),
 			new SpritesmithPlugin(spritesmithConfig),
 			new CleanWebpackPlugin(['../assets/dist/'], cleanConfig),
+			// @ts-ignore
 			new WebpackShellPlugin({
-				onBuildStart: shellScripts
+				onBuildStart: {
+					scripts: shellScripts
+				}
 			})
 		],
 		externals: {
@@ -244,7 +235,7 @@ module.exports = (): webpack.Configuration => {
 
 	if (isDevelopment) {
 		if (url) {
-			browserSyncConfig.host = parse(url).hostname as any;
+			browserSyncConfig.host = parse(url).hostname;
 			browserSyncConfig.proxy = url;
 		}
 
@@ -255,10 +246,10 @@ module.exports = (): webpack.Configuration => {
 			browserSyncConfig.server = true;
 		}
 
-		config.plugins?.push(
+		config.plugins.push(
 			new BrowserSyncPlugin(browserSyncConfig, {
 				reload: false
-			}) as any
+			})
 		);
 	}
 
