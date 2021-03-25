@@ -44,7 +44,7 @@
 		"@types/postcss-url": "8.0.1",
 		"@types/svgo": "2.0.0",
 		"@types/webpack": "4.41.26",
-		"@types/webpack-shell-plugin": "0.5.0",
+		"@types/webpack-shell-plugin": "0.5.1",
 		"@types/yargs": "16.0.0",
 		"autoprefixer": "10.2.5",
 		"awesome-typescript-loader": "5.2.1",
