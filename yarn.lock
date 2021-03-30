@@ -810,10 +810,10 @@
   resolved "https://registry.yarnpkg.com/@types/source-list-map/-/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
   integrity sha512-K5K+yml8LTo9bWJI/rECfIPrGgxdpeNbj+d53lwN4QjW1MCwlkhUms+gtdzigTeUyBr09+u8BwOIY3MXvHdcsA==
 
-"@types/svgo@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@types/svgo/-/svgo-2.0.0.tgz#82e328dde620a7a7ac94be3aeec476a0bd7497f7"
-  integrity sha512-KmEHpre8HycvpFC4c1/AkmWk6ryYOs4y475EQwAeDysZPi42Myf9/nXaImfoKFj8AGbYiMKD0VNqNGSn3tkVsA==
+"@types/svgo@2.3.0":
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@types/svgo/-/svgo-2.3.0.tgz#16723e04f9892b20368ff6f43396557ab86a1f39"
+  integrity sha512-DrZoZNZr4DlJEpu+g71l1SOxJ5KzLdRV2h+JBOgMmsL5zU82G9WW0fPjUhNM6WbVuVYoJ6mUhAgLZfsh3TQxlw==
 
 "@types/tapable@^1":
   version "1.0.7"

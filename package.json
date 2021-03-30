@@ -42,7 +42,7 @@
 		"@types/node": "14.14.37",
 		"@types/postcss-flexbugs-fixes": "4.2.0",
 		"@types/postcss-url": "8.0.1",
-		"@types/svgo": "2.0.0",
+		"@types/svgo": "2.3.0",
 		"@types/webpack": "5.28.0",
 		"@types/webpack-shell-plugin": "0.5.1",
 		"@types/yargs": "16.0.1",
