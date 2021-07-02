@@ -839,10 +839,10 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
 
-"@types/webpack-shell-plugin@0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@types/webpack-shell-plugin/-/webpack-shell-plugin-0.5.2.tgz#678a38c0694f565cddb163363fb70bc4a39dafbe"
-  integrity sha512-42D3oDSpugDVApaHP4fHn1Ji1bUf6iwQJWxtY61XCVHcrRmcokyc6Gk27g08be7JknhViZX7i0ok9uRTcputvA==
+"@types/webpack-shell-plugin@0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@types/webpack-shell-plugin/-/webpack-shell-plugin-0.5.3.tgz#b06a0bafff49b69c352d1f56ff7dd74b259ff281"
+  integrity sha512-ruQAa1hxzgVlsHfSfJGl5Dljq1bldOeWPPOmT4GYdtddc2FiXSXoWG33h9j4noClQP+R+Ni7rhdFStRwzYwrXg==
   dependencies:
     "@types/webpack" "^4"
 
