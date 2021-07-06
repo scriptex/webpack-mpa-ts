@@ -33,7 +33,7 @@
 	},
 	"devDependencies": {
 		"@three11/optisize": "1.3.0",
-		"@types/browser-sync": "2.26.1",
+		"@types/browser-sync": "2.26.2",
 		"@types/browser-sync-webpack-plugin": "2.2.1",
 		"@types/clean-webpack-plugin": "0.1.3",
 		"@types/cssnano": "4.0.0",
