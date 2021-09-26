@@ -48,7 +48,7 @@
 		"@types/yargs": "17.0.3",
 		"@typescript-eslint/eslint-plugin": "4.31.2",
 		"@typescript-eslint/parser": "4.31.2",
-		"autoprefixer": "10.3.5",
+		"autoprefixer": "10.3.6",
 		"browser-sync": "2.27.5",
 		"browser-sync-webpack-plugin": "2.3.0",
 		"browserslist": "4.17.1",
