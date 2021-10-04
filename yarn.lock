@@ -863,10 +863,10 @@
   resolved "https://registry.yarnpkg.com/@types/source-list-map/-/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
   integrity sha512-K5K+yml8LTo9bWJI/rECfIPrGgxdpeNbj+d53lwN4QjW1MCwlkhUms+gtdzigTeUyBr09+u8BwOIY3MXvHdcsA==
 
-"@types/svgo@2.4.2":
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/@types/svgo/-/svgo-2.4.2.tgz#545f1e838a883d5e6006a458e07dddf47ca504ca"
-  integrity sha512-z/S0Ot40/oKEVmJnf9aS6Nk7nqH14KpAjAwR1qVGG08lZmH0LkNu7OHW1791tkHtsNW6sQl/OoWTfwWbosNArA==
+"@types/svgo@2.6.0":
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/@types/svgo/-/svgo-2.6.0.tgz#f0c50eed286422f63b4e3346d8a309b0ea67d58a"
+  integrity sha512-VSdhb3KTOglle1SLQD4+TB6ezj/MS3rN98gOUkXzbTUhG8VjFKHXN3OVgEFlTnW5fYBxt+lzZlD3PFqkwMj36Q==
   dependencies:
     "@types/node" "*"
 
