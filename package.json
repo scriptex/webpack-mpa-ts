@@ -45,7 +45,7 @@
 		"@types/svgo": "2.6.0",
 		"@types/webpack": "5.28.0",
 		"@types/webpack-shell-plugin": "0.5.3",
-		"@types/yargs": "17.0.4",
+		"@types/yargs": "17.0.5",
 		"@typescript-eslint/eslint-plugin": "5.2.0",
 		"@typescript-eslint/parser": "5.2.0",
 		"autoprefixer": "10.4.0",
