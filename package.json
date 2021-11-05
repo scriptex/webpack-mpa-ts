@@ -86,7 +86,7 @@
 		"svgo": "2.8.0",
 		"ts-loader": "9.2.6",
 		"typescript": "4.4.4",
-		"webpack": "5.61.0",
+		"webpack": "5.62.1",
 		"webpack-cli": "4.9.1",
 		"webpack-shell-plugin-next": "2.2.2",
 		"webpack-spritesmith": "1.1.0",
