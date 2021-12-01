@@ -5,39 +5,15 @@ const { parse } = require('url');
 const { resolve } = require('path');
 const { readdirSync } = require('fs');
 
-const { argv } = require('yargs');
-const webpack = require('webpack');
 const magicImporter = require('node-sass-magic-importer');
+const { ProvidePlugin } = require('webpack');
 const SpritesmithPlugin = require('webpack-spritesmith');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const WebpackShellPlugin = require('webpack-shell-plugin-next');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const cssnano = require('cssnano');
-const postcssURL = require('postcss-url');
-const autoprefixer = require('autoprefixer');
-const postcssUtilities = require('postcss-utilities');
-const postcssEasyImport = require('postcss-easy-import');
-const postcssMergeRules = require('postcss-merge-rules');
-const postcssWatchFolder = require('postcss-watch-folder');
-const postcssFlexbugsFixed = require('postcss-flexbugs-fixes');
-
-const { url, server, mode } = argv;
-const sourceMap = {
-	sourceMap: mode === 'development'
-};
-
-if (server) {
-	exec('php index.php > index.html');
-}
-
-const postcssOptions = {
-	plugins: [postcssURL({ url: 'rebase' }), autoprefixer(), postcssUtilities, postcssEasyImport, postcssFlexbugsFixed],
-	...sourceMap
-};
-
-const browserSyncConfig = {
+const browserSyncConfig = server => ({
 	host: 'localhost',
 	port: 3000,
 	open: 'external',
@@ -74,7 +50,7 @@ const browserSyncConfig = {
 		}
 	},
 	proxy: 'localhost'
-};
+});
 
 const extractTextConfig = {
 	filename: 'app.css'
@@ -108,17 +84,41 @@ if (svgs.length) {
 	shellScripts.push('spritesh -q -i assets/images/svg -o ./assets/dist/sprite.svg -p svg-');
 }
 
-module.exports = () => {
+module.exports = (env, argv) => {
+	const { url, server } = env;
+	const { mode } = argv;
+
 	const isDevelopment = mode === 'development';
 	const isProduction = mode === 'production';
 
+	if (server) {
+		exec('php index.php > index.html');
+	}
+
+	const sourceMap = {
+		sourceMap: mode === 'development'
+	};
+
+	const postcssOptions = {
+		plugins: [
+			require('postcss-easy-import'),
+			require('postcss-url')({
+				url: 'rebase'
+			}),
+			require('postcss-utilities'),
+			require('postcss-flexbugs-fixes'),
+			require('autoprefixer')()
+		],
+		...sourceMap
+	};
+
 	if (isProduction) {
-		postcssOptions.plugins.push(postcssMergeRules, cssnano());
+		postcssOptions.plugins.push(require('postcss-merge-rules'), require('cssnano')());
 	}
 
 	if (isDevelopment) {
 		postcssOptions.plugins.push(
-			postcssWatchFolder({
+			require('postcss-watch-folder')({
 				folder: './assets/styles',
 				main: './assets/styles/main.scss'
 			})
@@ -126,7 +126,7 @@ module.exports = () => {
 	}
 
 	const config = {
-		mode: mode,
+		mode,
 		entry: ['./assets/styles/main.scss', './assets/scripts/main.ts'],
 		output: {
 			path: resolve(__dirname, './assets/dist'),
@@ -178,7 +178,7 @@ module.exports = () => {
 			]
 		},
 		plugins: [
-			new webpack.ProvidePlugin({
+			new ProvidePlugin({
 				$: 'jquery',
 				jQuery: 'jquery',
 				'window.jQuery': 'jquery'
@@ -201,21 +201,23 @@ module.exports = () => {
 		stats: 'errors-only'
 	};
 
+	const bsConfig = browserSyncConfig(server);
+
 	if (isDevelopment) {
 		if (url) {
-			browserSyncConfig.host = parse(url).hostname;
-			browserSyncConfig.proxy = url;
+			bsConfig.host = parse(url).hostname;
+			bsConfig.proxy = url;
 		}
 
 		if (server) {
-			delete browserSyncConfig.host;
-			delete browserSyncConfig.proxy;
+			delete bsConfig.host;
+			delete bsConfig.proxy;
 
-			browserSyncConfig.server = true;
+			bsConfig.server = true;
 		}
 
 		config.plugins.push(
-			new BrowserSyncPlugin(browserSyncConfig, {
+			new BrowserSyncPlugin(bsConfig, {
 				reload: false
 			})
 		);
