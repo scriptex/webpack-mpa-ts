@@ -33,7 +33,7 @@
 	},
 	"devDependencies": {
 		"@three11/optisize": "2.0.0",
-		"@types/node": "16.11.21",
+		"@types/node": "16.11.22",
 		"@typescript-eslint/eslint-plugin": "5.10.2",
 		"@typescript-eslint/parser": "5.10.2",
 		"autoprefixer": "10.4.2",
