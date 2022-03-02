@@ -46,7 +46,7 @@
 		"css-loader": "6.6.0",
 		"cssnano": "5.1.0",
 		"eslint": "8.10.0",
-		"eslint-config-prettier": "8.4.0",
+		"eslint-config-prettier": "8.5.0",
 		"eslint-config-recommended": "4.1.0",
 		"eslint-plugin-compat": "4.0.2",
 		"mini-css-extract-plugin": "2.5.3",
