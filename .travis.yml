@@ -5,7 +5,7 @@ node_js:
 install:
     - yarn
 script:
-    - yarn build
-    - yarn optisize
-    - yarn pwa
     - yarn lint
+    - yarn pwa
+    - yarn optisize
+    - yarn prod
