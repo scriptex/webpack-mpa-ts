@@ -45,8 +45,8 @@
 	"devDependencies": {
 		"@three11/optisize": "3.0.1",
 		"@types/node": "18.11.18",
-		"@typescript-eslint/eslint-plugin": "5.49.0",
-		"@typescript-eslint/parser": "5.49.0",
+		"@typescript-eslint/eslint-plugin": "5.50.0",
+		"@typescript-eslint/parser": "5.50.0",
 		"autoprefixer": "10.4.13",
 		"browser-sync": "2.27.11",
 		"browser-sync-webpack-plugin": "2.3.0",
