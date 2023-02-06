@@ -1,6 +1,6 @@
 {
 	"name": "webpack-mpa-ts",
-	"version": "3.12.0",
+	"version": "4.0.0",
 	"description": "Multi page app setup with webpack",
 	"keywords": [
 		"MPA",
@@ -29,7 +29,6 @@
 	"scripts": {
 		"build": "webpack --mode=production",
 		"start": "webpack --watch --mode=development",
-		"optisize": "optisize --src=\"./assets/images\"",
 		"html": "php index.php > index.html",
 		"critical": "node critical.mjs",
 		"rm-html": "rm index.html",
@@ -43,7 +42,6 @@
 		"itscss": "3.1.0"
 	},
 	"devDependencies": {
-		"@three11/optisize": "3.0.1",
 		"@types/node": "18.11.19",
 		"@typescript-eslint/eslint-plugin": "5.50.0",
 		"@typescript-eslint/parser": "5.50.0",
@@ -59,7 +57,7 @@
 		"eslint": "8.33.0",
 		"eslint-config-prettier": "8.6.0",
 		"eslint-config-recommended": "4.1.0",
-		"eslint-plugin-compat": "4.1.0",
+		"eslint-plugin-compat": "4.0.2",
 		"mini-css-extract-plugin": "2.7.2",
 		"node-sass-magic-importer": "5.3.2",
 		"postcss": "8.4.21",
@@ -87,6 +85,12 @@
 		"webpack-cli": "5.0.1",
 		"webpack-shell-plugin-next": "2.3.1",
 		"webpack-spritesmith": "1.1.0"
+	},
+	"resolutions": {
+		"got": "^11.8.5",
+		"http-cache-semantics": "^4.1.1",
+		"semver-regex": "^3.1.4",
+		"ua-parser-js": "^1.0.33"
 	},
 	"bin": {
 		"wmpats": "./bin/cli.js"
