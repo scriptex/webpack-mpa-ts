@@ -81,7 +81,7 @@
 		"svg-symbol-sprite": "1.4.0",
 		"ts-loader": "9.4.3",
 		"typescript": "5.0.4",
-		"webpack": "5.84.0",
+		"webpack": "5.84.1",
 		"webpack-cli": "5.1.1",
 		"webpack-shell-plugin-next": "2.3.1",
 		"webpack-spritesmith": "1.1.0"
