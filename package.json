@@ -45,7 +45,7 @@
 		"@types/node": "18.17.5",
 		"@typescript-eslint/eslint-plugin": "6.3.0",
 		"@typescript-eslint/parser": "6.3.0",
-		"autoprefixer": "10.4.14",
+		"autoprefixer": "10.4.15",
 		"browser-sync": "2.29.3",
 		"browser-sync-webpack-plugin": "2.3.0",
 		"browserslist": "4.21.10",
