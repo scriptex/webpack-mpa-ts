@@ -43,8 +43,8 @@
 	},
 	"devDependencies": {
 		"@types/node": "20.10.7",
-		"@typescript-eslint/eslint-plugin": "6.15.0",
-		"@typescript-eslint/parser": "6.15.0",
+		"@typescript-eslint/eslint-plugin": "6.18.0",
+		"@typescript-eslint/parser": "6.18.0",
 		"autoprefixer": "10.4.16",
 		"browser-sync": "2.29.3",
 		"browser-sync-webpack-plugin": "2.3.0",
