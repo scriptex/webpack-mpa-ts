@@ -34,7 +34,7 @@
 		"rm-html": "rm index.html",
 		"pwa": "create-pwa --icon=\"./assets/images/favicon/icon.png\" --launch=\"./assets/images/favicon/launch.png\"",
 		"prod": "yarn build && yarn html && yarn critical && yarn rm-html",
-		"lint:ts": "eslint 'assets/scripts/**/*.ts'",
+		"lint:ts": "eslint",
 		"lint:scss": "stylelint assets/styles/**/*.scss",
 		"lint": "yarn lint:ts && yarn lint:scss"
 	},
@@ -85,12 +85,6 @@
 		"webpack-cli": "5.1.4",
 		"webpack-shell-plugin-next": "2.3.1",
 		"webpack-spritesmith": "1.1.0"
-	},
-	"resolutions": {
-		"got": "^11.8.5",
-		"http-cache-semantics": "^4.1.1",
-		"semver-regex": "^4.0.0",
-		"ua-parser-js": "^1.0.33"
 	},
 	"bin": {
 		"wmpats": "./bin/cli.js"
