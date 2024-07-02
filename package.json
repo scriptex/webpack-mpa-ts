@@ -80,7 +80,7 @@
 		"stylelint-scss": "6.3.2",
 		"svg-symbol-sprite": "1.5.2",
 		"ts-loader": "9.5.1",
-		"typescript": "5.5.2",
+		"typescript": "5.5.3",
 		"webpack": "5.92.1",
 		"webpack-cli": "5.1.4",
 		"webpack-shell-plugin-next": "2.3.1",
