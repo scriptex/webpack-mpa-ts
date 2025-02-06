@@ -539,10 +539,10 @@
   dependencies:
     undici-types "~6.11.1"
 
-"@types/node@22.10.7":
-  version "22.10.7"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.10.7.tgz#14a1ca33fd0ebdd9d63593ed8d3fbc882a6d28d7"
-  integrity sha512-V09KvXxFiutGp6B7XkpaDXlNadZxrzajcY50EuoLIpQ6WWYCSvf19lVIazzfIzQvhUN2HjX12spLojTnhuKlGg==
+"@types/node@22.10.10":
+  version "22.10.10"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.10.10.tgz#85fe89f8bf459dc57dfef1689bd5b52ad1af07e6"
+  integrity sha512-X47y/mPNzxviAGY5TcYPtYL8JsY3kAq2n8fMmKoRCxq/c4v4pyGNCzM2R6+M5/umG4ZfHuT+sgqDYqWc9rJ6ww==
   dependencies:
     undici-types "~6.20.0"
 
@@ -7356,10 +7356,10 @@ stylelint-config-standard@^36.0.1:
   dependencies:
     stylelint-config-recommended "^14.0.1"
 
-stylelint-no-unsupported-browser-features@8.0.2:
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/stylelint-no-unsupported-browser-features/-/stylelint-no-unsupported-browser-features-8.0.2.tgz#2d13c0515df986bd8eb16e2a3c05616b337a40dc"
-  integrity sha512-4PY2qJ3ZTEje9RgGfaQ82eJoPioXxs6hazeKpji/wzLNVzTX2wd4b0Ds3ewdLkH3ID+o63IInuTquU2MNJO3YQ==
+stylelint-no-unsupported-browser-features@8.0.4:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/stylelint-no-unsupported-browser-features/-/stylelint-no-unsupported-browser-features-8.0.4.tgz#4212fab92cc827c1670ea42c15b2be8fd8c1c31a"
+  integrity sha512-MNdjegsgfTu1iDBsJM+1uBVZsIt0EWzqAX5qgUBAGavXkddwRqh+S1KD2VnWqUhiEuyddVrWJH8vKsNI40orxA==
   dependencies:
     doiuse "^6.0.5"
     postcss "^8.4.32"

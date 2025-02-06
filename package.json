@@ -42,7 +42,7 @@
 		"itscss": "3.1.0"
 	},
 	"devDependencies": {
-		"@types/node": "22.10.7",
+		"@types/node": "22.10.10",
 		"@typescript-eslint/eslint-plugin": "8.21.0",
 		"@typescript-eslint/parser": "8.21.0",
 		"autoprefixer": "10.4.20",
@@ -76,7 +76,7 @@
 		"stylelint": "16.13.2",
 		"stylelint-config-recommended": "15.0.0",
 		"stylelint-config-standard-scss": "14.0.0",
-		"stylelint-no-unsupported-browser-features": "8.0.2",
+		"stylelint-no-unsupported-browser-features": "8.0.4",
 		"stylelint-scss": "6.10.1",
 		"svg-symbol-sprite": "1.5.2",
 		"ts-loader": "9.5.2",
