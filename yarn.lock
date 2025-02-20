@@ -539,10 +539,10 @@
   dependencies:
     undici-types "~6.11.1"
 
-"@types/node@22.13.1":
-  version "22.13.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.13.1.tgz#a2a3fefbdeb7ba6b89f40371842162fac0934f33"
-  integrity sha512-jK8uzQlrvXqEU91UxiK5J7pKHyzgnI1Qnl0QDHIgVGuolJhRb9EEl28Cj9b3rGR8B2lhFCtvIm5os8lFnO/1Ew==
+"@types/node@22.13.4":
+  version "22.13.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.13.4.tgz#3fe454d77cd4a2d73c214008b3e331bfaaf5038a"
+  integrity sha512-ywP2X0DYtX3y08eFVx5fNIw7/uIv8hYUKgXoK8oayJlLnKcRfEYCxWMVE1XagUdVtCJlZT1AU4LXEABW+L1Peg==
   dependencies:
     undici-types "~6.20.0"
 
@@ -6099,10 +6099,10 @@ postcss-watch-folder@2.0.0:
   resolved "https://registry.yarnpkg.com/postcss-watch-folder/-/postcss-watch-folder-2.0.0.tgz#0f0b22da8add6cc626be2fd86d099cc7c970b75f"
   integrity sha512-afXH6ow2TFIyCKmQiTjCbjzLOpc1cN4Tsr5J5hctLyQYfIo05pVIiADoKWOaHU8k3Axx/smL6x99Y4dDQyx7fA==
 
-postcss@8.5.1, postcss@^8.5.1:
-  version "8.5.1"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.1.tgz#e2272a1f8a807fafa413218245630b5db10a3214"
-  integrity sha512-6oz2beyjc5VMn/KV1pPw8fliQkhBXrVn1Z3TVyqZxU8kZpzEKhBdmCFqI6ZbmGtamQvQGuU1sgPTk8ZrXDD7jQ==
+postcss@8.5.3:
+  version "8.5.3"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.3.tgz#1463b6f1c7fb16fe258736cba29a2de35237eafb"
+  integrity sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==
   dependencies:
     nanoid "^3.3.8"
     picocolors "^1.1.1"
@@ -6141,6 +6141,15 @@ postcss@^8.4.47:
   dependencies:
     nanoid "^3.3.7"
     picocolors "^1.1.0"
+    source-map-js "^1.2.1"
+
+postcss@^8.5.1:
+  version "8.5.1"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.5.1.tgz#e2272a1f8a807fafa413218245630b5db10a3214"
+  integrity sha512-6oz2beyjc5VMn/KV1pPw8fliQkhBXrVn1Z3TVyqZxU8kZpzEKhBdmCFqI6ZbmGtamQvQGuU1sgPTk8ZrXDD7jQ==
+  dependencies:
+    nanoid "^3.3.8"
+    picocolors "^1.1.1"
     source-map-js "^1.2.1"
 
 prebuild-install@^7.1.1:
@@ -6679,10 +6688,10 @@ sanitize.css@13.0.0:
   resolved "https://registry.yarnpkg.com/sanitize.css/-/sanitize.css-13.0.0.tgz#2675553974b27964c75562ade3bd85d79879f173"
   integrity sha512-ZRwKbh/eQ6w9vmTjkuG0Ioi3HBwPFce0O+v//ve+aOq1oeCy7jMV2qzzAlpsNuqpqCBjjriM1lbtZbF/Q8jVyA==
 
-sass-loader@16.0.4:
-  version "16.0.4"
-  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-16.0.4.tgz#5c2afb755fbc0a45a004369efa11579518a39a45"
-  integrity sha512-LavLbgbBGUt3wCiYzhuLLu65+fWXaXLmq7YxivLhEqmiupCFZ5sKUAipK3do6V80YSU0jvSxNhEdT13IXNr3rg==
+sass-loader@16.0.5:
+  version "16.0.5"
+  resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-16.0.5.tgz#257bc90119ade066851cafe7f2c3f3504c7cda98"
+  integrity sha512-oL+CMBXrj6BZ/zOq4os+UECPL+bWqt6OAC6DWS8Ln8GZRcMDjlJ4JC3FBDuHJdYaFWIdKNIBYmtZtK2MaMkNIw==
   dependencies:
     neo-async "^2.6.2"
 
