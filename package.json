@@ -42,7 +42,7 @@
 		"itscss": "3.1.0"
 	},
 	"devDependencies": {
-		"@types/node": "22.15.19",
+		"@types/node": "22.15.20",
 		"@typescript-eslint/eslint-plugin": "8.32.1",
 		"@typescript-eslint/parser": "8.32.1",
 		"autoprefixer": "10.4.21",
@@ -81,7 +81,7 @@
 		"svg-symbol-sprite": "1.5.2",
 		"ts-loader": "9.5.2",
 		"typescript": "5.8.3",
-		"webpack": "5.99.8",
+		"webpack": "5.99.9",
 		"webpack-cli": "6.0.1",
 		"webpack-shell-plugin-next": "2.3.2",
 		"webpack-spritesmith": "1.1.0"
