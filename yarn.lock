@@ -5050,10 +5050,10 @@ min-indent@^1.0.0:
   resolved "https://registry.yarnpkg.com/min-indent/-/min-indent-1.0.1.tgz#a63f681673b30571fbe8bc25686ae746eefa9869"
   integrity sha512-I9jwMn07Sy/IwOj3zVkVik2JTvgpaykDZEigL6Rx6N9LbMywwUSMtxET+7lVoDLLd3O3IXwJwvuuns8UB/HeAg==
 
-mini-css-extract-plugin@2.9.2:
-  version "2.9.2"
-  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-2.9.2.tgz#966031b468917a5446f4c24a80854b2947503c5b"
-  integrity sha512-GJuACcS//jtq4kCtd5ii/M0SZf7OZRH+BxdqXZHaJfb8TJiVl+NgQRPwiYt2EuqeSkNydn/7vP+bcE27C5mb9w==
+mini-css-extract-plugin@2.9.3:
+  version "2.9.3"
+  resolved "https://registry.yarnpkg.com/mini-css-extract-plugin/-/mini-css-extract-plugin-2.9.3.tgz#3dcb896f21cdcbd24528eb7e9b89f91635508198"
+  integrity sha512-tRA0+PsS4kLVijnN1w9jUu5lkxBwUk9E8SbgEB5dBJqchE6pVYdawROG6uQtpmAri7tdCK9i7b1bULeVWqS6Ag==
   dependencies:
     schema-utils "^4.0.0"
     tapable "^2.2.1"
@@ -8231,10 +8231,10 @@ webpack-merge@^6.0.1:
     flat "^5.0.2"
     wildcard "^2.0.1"
 
-webpack-shell-plugin-next@2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/webpack-shell-plugin-next/-/webpack-shell-plugin-next-2.3.2.tgz#e7ff817f007cbdc8b9e29800d36c92e3cd64bafd"
-  integrity sha512-VAM1TcncZJHVkXDLlqXt2YMUEYuJca8MRqPThXX0SzxKetXCE16eTzEWaF3a/QbLF2j3grBMosCpnLzxXyu3cA==
+webpack-shell-plugin-next@2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/webpack-shell-plugin-next/-/webpack-shell-plugin-next-2.3.3.tgz#30a935543be1aa023e03132a0fd875e3afed38fe"
+  integrity sha512-3TMY32HKeEiaKqv6o6MSM3sN/G2HgtPWldINI5YkTyY31XB7I/awarZICBoSusbCYwW13oowG+Xrw9zg3mfT7w==
 
 webpack-sources@^3.3.3:
   version "3.3.3"
