@@ -42,9 +42,9 @@
 		"itscss": "3.1.0"
 	},
 	"devDependencies": {
-		"@types/node": "22.18.8",
-		"@typescript-eslint/eslint-plugin": "8.46.0",
-		"@typescript-eslint/parser": "8.46.0",
+		"@types/node": "22.18.11",
+		"@typescript-eslint/eslint-plugin": "8.46.1",
+		"@typescript-eslint/parser": "8.46.1",
 		"autoprefixer": "10.4.21",
 		"browser-sync": "3.0.4",
 		"browser-sync-webpack-plugin": "2.4.0",
@@ -76,12 +76,12 @@
 		"stylelint": "16.25.0",
 		"stylelint-config-recommended": "17.0.0",
 		"stylelint-config-standard-scss": "16.0.0",
-		"stylelint-no-unsupported-browser-features": "8.0.4",
+		"stylelint-no-unsupported-browser-features": "8.0.5",
 		"stylelint-scss": "6.12.1",
 		"svg-symbol-sprite": "1.5.2",
 		"ts-loader": "9.5.4",
 		"typescript": "5.9.3",
-		"webpack": "5.102.0",
+		"webpack": "5.102.1",
 		"webpack-cli": "6.0.1",
 		"webpack-shell-plugin-next": "2.3.3",
 		"webpack-spritesmith": "1.1.0"
