@@ -43,8 +43,8 @@
 	},
 	"devDependencies": {
 		"@types/node": "24.12.2",
-		"@typescript-eslint/eslint-plugin": "8.58.2",
-		"@typescript-eslint/parser": "8.58.2",
+		"@typescript-eslint/eslint-plugin": "8.59.0",
+		"@typescript-eslint/parser": "8.59.0",
 		"autoprefixer": "10.5.0",
 		"browser-sync": "3.0.4",
 		"browser-sync-webpack-plugin": "2.4.0",
