@@ -17,6 +17,7 @@
 		"noImplicitReturns": true,
 		"noImplicitThis": true,
 		"noStrictGenericChecks": false,
+		"rootDir": ".",
 		"outDir": "./assets/dist/",
 		"pretty": true,
 		"removeComments": false,
@@ -27,7 +28,7 @@
 		"strictFunctionTypes": true,
 		"strictPropertyInitialization": true,
 		"strictNullChecks": true,
-		"target": "es5"
+		"target": "ESNext"
 	},
 	"include": ["./assets/scripts/**/*"]
 }

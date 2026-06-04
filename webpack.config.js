@@ -3,7 +3,6 @@ const { parse } = require('url');
 const { resolve } = require('path');
 const { readdirSync } = require('fs');
 
-const magicImporter = require('node-sass-magic-importer');
 const { ProvidePlugin } = require('webpack');
 const SpritesmithPlugin = require('webpack-spritesmith');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
@@ -24,7 +23,7 @@ const browserSyncConfig = server => ({
 
 						exec(`php ${file} > ${name}.html`);
 					}
-			  }
+				}
 			: '**/*.php',
 		'**/*.html',
 		'./assets/dist/app.css',
@@ -149,10 +148,7 @@ module.exports = (env, argv) => {
 						{
 							loader: 'sass-loader',
 							options: {
-								api: 'legacy',
-								sassOptions: {
-									importer: magicImporter()
-								},
+								api: 'auto',
 								...sourceMap
 							}
 						}
