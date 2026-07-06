@@ -48,7 +48,7 @@
 		"autoprefixer": "10.5.2",
 		"browser-sync": "3.0.4",
 		"browser-sync-webpack-plugin": "2.4.0",
-		"browserslist": "4.28.4",
+		"browserslist": "4.28.5",
 		"clean-webpack-plugin": "4.0.0",
 		"create-pwa": "2.7.0",
 		"critical": "8.0.0",
