@@ -71,7 +71,7 @@
 		"postcss-utilities": "0.8.4",
 		"postcss-watch-folder": "2.0.0",
 		"sass": "1.108.2",
-		"sass-loader": "17.1.0",
+		"sass-loader": "17.1.1",
 		"source-map-loader": "5.0.0",
 		"stylelint": "18.0.0",
 		"stylelint-config-recommended": "19.0.0",
